@@ -104,6 +104,6 @@ mylist.print_list()
 mylist.delete_item(45)
 print()
 
-for x in mylist:
+for x in mylist: 
     print(x, end= ' ')
 print()
