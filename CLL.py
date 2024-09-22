@@ -117,13 +117,6 @@ class CLLIterator:
         self.current=self.current.next
         return data
        
-                                      
-        
-        
-                
-        
-        
-        
 #driver code
 mylist =CLL()
 mylist.insert_at_start(10)
