@@ -1,31 +1,155 @@
 class Node:
-    def __init__(self,prev=None,item=None,next=None):
-        self.item=item
-        self.prev=prev
-        self.next=next
+    def __init__(self, prev=None, item=None, next=None):
+        self.item = item
+        self.prev = prev
+        self.next = next
         
 class CDLL:
-    def __init__(self,start):
-        self.start=start
+    def __init__(self, start=None):
+        self.start = start
         
     def is_empty(self):
-        return self.start==None
+        return self.start is None
     
-    def insert_at_start(self,data):
-        n= Node(data)
+    def insert_at_start(self, data):
+        n = Node(None,data,None)
         if self.is_empty():
-            self.start=n
-        elif self.start.next== self.start:
-            n.next=self.start
-            n.prev=self.start
-            self.start.prev=n
-            self.start=n
+            n.next = n
+            n.prev = n
         else:
-            n.next==self.start.next
-            n.prev=self.start
-            self.start.next.prev=n
-            self.start.next=n
+            n.next = self.start
+            n.prev = self.start.prev
+            self.start.prev.next = n
+            self.start.prev = n
+        self.start = n
+        
+    def insert_at_last(self, data):
+        n = Node(None,data,None)
+        if self.is_empty():
+            n.next = n
+            n.prev = n
+            self.start = n
+        else:
+            n.next = self.start
+            n.prev = self.start.prev
+            n.prev.next = n
+            self.start.prev = n
+            
+    def search(self, data):
+        temp = self.start
+        if temp is None:
+            return None
+        if temp.item == data:
+            return temp
+        else:
+            temp = temp.next
+            
+        while temp != self.start:
+            if temp.item == data:
+                return temp
+            temp = temp.next
+        return None
+            
+    def insert_after(self, temp, data):
+        if temp is not None:
+            n = Node(temp,data,temp.next)
+            n.next = temp.next
+            n.prev = temp
+            temp.next.prev = n
+            temp.next = n
+            
+    def print_list(self):
+        temp = self.start
+        if temp is not None:
+            print(temp.item, end=' ')
+            temp = temp.next
+            while temp != self.start:
+                print(temp.item, end=' ')
+                temp = temp.next
+            print()  # For newline after the list is printed
+                
+    def delete_first(self):
+        if self.start is not None:
+            if self.start.next == self.start:
+                self.start = None
+            else:
+                self.start.prev.next = self.start.next
+                self.start.next.prev = self.start.prev
+                self.start = self.start.next
+                
+    def delete_last(self):
+        if self.start is not None:
+            if self.start.next == self.start:
+                self.start = None
+            else:
+                self.start.prev.prev.next = self.start
+                self.start.prev = self.start.prev.prev
+                
+    def delete_item(self, data):
+        if self.start is not None:
+            temp = self.start
+            if temp.item == data:
+                self.delete_first()
+            else:
+                temp = temp.next
+                while temp != self.start:
+                    if temp.item == data:
+                        temp.next.prev = temp.prev
+                        temp.prev.next = temp.next
+                        break  # Once found, exit the loop
+                        
+    def __iter__(self):
+        return CDLLIterator(self.start)
+               
+                        
+class CDLLIterator:
+    def __init__(self, start):
+        self.current = start
+        self.start = start
+        self.count = 0
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.current is None:
+            raise StopIteration
+        if self.current == self.start and self.count == 1:
+            raise StopIteration
+        else:
+            self.count = 1
+            data = self.current.item
+            self.current = self.current.next
+            return data
+
+# Driver Code
+mylist = CDLL()
+mylist.insert_at_start(5)
+mylist.insert_at_last(15)
+mylist.insert_at_last(20)
+mylist.insert_at_last(25) 
+mylist.insert_after(mylist.search(5), 10)
+for x in mylist:
+    print(x, end=' ')
+print()
+
+mylist.delete_first()
+for x in mylist:
+    print(x, end=' ')
+print()
+
+mylist.delete_last()
+for x in mylist:
+    print(x, end=' ')
+print()
+
+mylist.delete_item(15)
+for x in mylist:
+    print(x, end=' ')
+print()
+                     
+          
                 
         
-            
+             
             
