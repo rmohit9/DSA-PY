@@ -14,8 +14,10 @@ class Stack:
         
     def pop(self):
         if not self.is_empty():
+            data=self.mylist.start.item
             self.mylist.delete_first()
             self.item_count-=1
+            return data
             
     def peek(self):
         if not self.is_empty():
