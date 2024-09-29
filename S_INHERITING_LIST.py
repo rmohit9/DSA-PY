@@ -33,7 +33,6 @@ print("Removed Element",s1.pop())
 print("Top Element=", s1.peek())
 print("Removed Element",s1.pop())
 print("Top Element=", s1.peek())
-
 print()
         
         

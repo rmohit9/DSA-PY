@@ -95,16 +95,16 @@ class SLLIterator:
         
         
 #driver Code
-mylist = SLL()
-mylist.insert_at_start(20)
-mylist.insert_at_start(10)
-mylist.insert_at_last(45)
-mylist.insert_after(mylist.search(20),25)
-mylist.print_list()
-mylist.delete_item(45)
-print()
+# mylist = SLL()
+# mylist.insert_at_start(20)
+# mylist.insert_at_start(10)
+# mylist.insert_at_last(45)
+# mylist.insert_after(mylist.search(20),25)
+# mylist.print_list()
+# mylist.delete_item(45)
+# print()
 
-for x in mylist: 
-    print(x, end= ' ')
-print()
+# for x in mylist: 
+#     print(x, end= ' ')
+# print()
 
