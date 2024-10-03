@@ -146,10 +146,4 @@ print()
 mylist.delete_item(15)
 for x in mylist:
     print(x, end=' ')
-print()
-                     
-          
-                
-        
-             
-            
+print()    
