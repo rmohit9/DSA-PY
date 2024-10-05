@@ -45,5 +45,9 @@ d1.insert_rear(20)
 d1.insert_front(30) 
 d1.insert_rear(40)  
 print(d1.get_front(),d1.get_rear())
+
+
+# OUTPUT
+# 30 40
        
         
