@@ -132,6 +132,8 @@ for x in mylist:
     print(x,end=' ')
 print()
 
+# o/p:  10 15 30 40 
+#       15 30 40     
     
     
     
