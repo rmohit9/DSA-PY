@@ -146,4 +146,9 @@ print()
 mylist.delete_item(15)
 for x in mylist:
     print(x, end=' ')
-print()    
+print()
+
+# o/p:    5 10 15 20 25 
+#         10 15 20 25 
+#         10 15 20 
+#         10 20     
