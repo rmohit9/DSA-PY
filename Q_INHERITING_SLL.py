@@ -39,6 +39,11 @@ print("Size is =",q1.size())
 q1.dequeue()
 print("Front Item =",q1.get_front())
 print("Size is =",q1.size())
+
+# o/p:    Front Item = 10
+#         Size is = 4
+#         Front Item = 20
+#         Size is = 3
     
         
         
