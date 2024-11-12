@@ -28,7 +28,41 @@ class Graph:
     def print_adj_list(self):
         for vertex,n in self.adj_list.items():
             print("v",vertex,":",n)
- 
+            
+    def bfs(self,start):
+        queue=[start]
+        visited=[False]* self.vertex_count
+        visited[start]=True
+        order=[]
+        
+        while queue:
+            current=queue.pop(0)
+            order.append(current)
+            
+            # Extracting the vertex part of each (vertex, weight) tuple
+            for neighbour, _ in self.adj_list[current]:
+                if not visited[neighbour]:
+                    visited[neighbour]=True
+                    queue.append(neighbour)
+        return order
+                
+    def dfs(self,start):
+        stack=[start]
+        visited=[False]*self.vertex_count
+        order =[]
+        
+        while stack:
+            current=stack.pop(0)
+            
+            if not visited[current]:
+                visited[current]=True
+                order.append(current)
+                
+                for neighbour, _ in reversed(self.adj_list[current]):
+                    if not visited[neighbour]:
+                        stack.append(neighbour)
+        return order
+                
 #driver code           
 g=Graph(5)
 g.add_edge(0,1)
@@ -37,6 +71,11 @@ g.add_edge(1,3)
 g.add_edge(2,4)
 g.add_edge(3,4)
 g.print_adj_list()
+print()
+print("BFS order: ",g.bfs(0))
+print()
+print("DFS order: ",g.dfs(0))
+
 
 # O/P:
 #   	v 0 : [(1, 1)]
