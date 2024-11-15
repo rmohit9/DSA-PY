@@ -10,4 +10,5 @@ def selection_sort(list1):
 l1=[74,24,20,57,37,95,22,73]
 selection_sort(l1)
 print(l1)
-        
+ 
+# O/P :      [20, 22, 24, 37, 57, 73, 74, 95]
