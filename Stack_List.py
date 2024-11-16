@@ -33,7 +33,5 @@ print('Removed Element is',s1.pop())
 print("Top Element is",s1.peek())
             
             
-        
-        
-        
-        
+# O/P:    Removed Element is 40
+#         Top Element is 30
