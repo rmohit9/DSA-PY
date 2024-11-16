@@ -47,3 +47,8 @@ s1.push(40)
 s1.push(90)
 print("Top element is",s1.peek())
 
+# O/P:    size of stack is 3
+#         Top element is 60
+#         removed element is 60
+
+#         Top element is 90
